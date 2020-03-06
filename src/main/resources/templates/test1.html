@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <p th:utext="#{home.welcome(${username},'2019-01-01')}">Welcome to our grocery store !</p>
+    <p th:text="|${dog.sayHello('King')},${dog.age},${dog.name}|"></p>
+
+    <p th:text="${mytext}"></p>
+    <p th:utext="${mytext}"></p>
+    <p>[[${mytext}]]</p>
+    <p>[(${mytext})]</p>
+
+    <div th:object="${dog}">
+        <p>Name: <span th:text="*{name}">Saturn</span>.</p>
+        <p>Name: <span th:text="${#object.name}">Sebastian</span>.</p>
+        <p>Name: <span th:text="${dog.name+'he  he  he he'}">Pepper</span>.</p>
+    </div>
+
+    <div th:insert="~{frame/footer :: copy}"></div>
+
+    <input type="button" value="Do it!" class="btn" th:attrappend="class=${' ' + cssStyle}" />
+
+    <tr th:each="prod : ${prods}" class="row" th:classappend="${prodStat.odd}? 'odd'">
+        <td>你好</td>
+    </tr>
+
+    <p th:maybe = "'say hello'">ni hao</p>
+
+    <div th:text="${@myLocaleConfigure.toString()}"></div>
+    <h1>1111111111111</h1>
+    <div th:text="${#ctx==#vars}"></div>
+    <h1>1111111111111</h1>
+    <div th:text="${#locale}"></div>
+   <!-- <h1>1111111111111</h1>
+    <div th:text="${#vars}"></div>-->
+    <h1>1111111111111</h1>
+    <div th:text="${#request}"></div>
+    <h1>1111111111111</h1>
+    <div th:text="${#response}"></div>
+    <h1>1111111111111</h1>
+    <div th:text="${#session}"></div>
+    <h1>1111111111111</h1>
+    <div th:text="${#servletContext}"></div>
+
+    <a href="comments.html"th:href="@{/product/comments(prodId=${prod})}"
+       th:if="${not #lists.isEmpty(prods[0])}">view</a>
+
+    <a href="comments.html"th:href="@{/comments(prodId=${prod})}"
+       th:unless="${#lists.isEmpty(hello)}">view</a>
+
+    <div th:switch="${dog.name}">
+        <p th:case="admin">User is an administrator</p>
+        <p th:case="#{dog.age}">User is a manager</p>
+        <p th:case="*">User is some other thing</p>
+    </div>
+
+    <div th:with="firstPer=${prods[0]}">
+        <p>
+            The name of the first person is <span th:text="${firstPer.class}">Julius Caesar</span>.
+        </p>
+    </div>
+
+
+</body>
+</html>

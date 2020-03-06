@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <h3 th:text="#{home.welcome(${username},${date.toLocaleString()})}">home welcome</h3>
+    <a th:href="@{/login(locale='zh_CN')}">中文</a>
+    <a th:href="@{/login(locale='en_US')}">英文</a>
+</body>
+</html>
