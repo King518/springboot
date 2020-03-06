@@ -22,6 +22,7 @@ public class Test20200211Application {
         logger.info("Hello {} {}","world",date);
         logger.warn("Hello {}  {}","world",date);
         logger.error("Hello {}  {}","world",date);
+        System.out.println("你好");
         SpringApplication.run(Test20200211Application.class, args);
     }
 
