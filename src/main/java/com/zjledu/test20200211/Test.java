@@ -16,7 +16,7 @@ public class Test {
         System.out.println(dog);
 
         System.out.println(dog==dog1);
-        System.out.println(dog.equals(dog1));
+        System.out.println("骚年");
 
 
     }
